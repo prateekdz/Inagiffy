@@ -1,0 +1,184 @@
+.wrap {
+  display: flex;
+  min-height: 100vh;
+  background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.82) 0%, rgba(243,245,247,0.82) 100%), url('/src/assets/pexels-katlego-mongatane-274855333-12904989.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  padding: 24px;
+  box-sizing: border-box;
+  gap: 18px;
+}
+
+.sidebar {
+  width: 240px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.zoom {
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+.zoom button{background:#fff;border:0;padding:8px;border-radius:8px;box-shadow:0 4px 10px rgba(16,24,40,0.04);cursor:pointer}
+.zoom-level{min-width:48px;text-align:center;font-weight:600;color:#222}
+
+.minimap {
+  width: 100%;
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: linear-gradient(180deg,#fbfdff,#f3f6f9);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.minimap svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 6px;
+}
+
+.toggles .toggle-row{display:flex;align-items:center;gap:8px;font-size:14px}
+.selectors select{width:100%;padding:8px;border-radius:8px;border:1px solid #e8edf2;background:#fff}
+
+.export-area{padding-top:8px}
+.export-btn{width:100%;padding:10px;border-radius:8px;border:0;background:#2f3a49;color:#fff;font-weight:600;cursor:pointer}
+
+.main{
+  flex:1;
+  display:flex;
+  flex-direction:column;
+  position:relative;
+}
+
+.topbar{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  margin-bottom:12px;
+}
+.topbar .title{font-weight:700;padding-left:10px}
+.top-controls{display:flex;gap:8px;align-items:center}
+.export-small{background:#111;padding:8px 12px;color:#fff;border-radius:8px;border:0}
+
+.topic-input{padding:8px 10px;border-radius:8px;border:1px solid #e6eef6;width:360px;margin-right:8px}
+.generate-btn{background:#0f1724;color:#fff;padding:8px 12px;border-radius:8px;border:0;margin-left:8px}
+.level-select{padding:8px;border-radius:8px;border:1px solid #e6eef6;margin-left:8px}
+
+.details-panel{position:absolute;right:28px;bottom:28px;width:260px;background:#fff;padding:12px;border-radius:10px;box-shadow:0 10px 30px rgba(16,24,40,0.06)}
+.details-panel h3{margin:0 0 6px 0}
+.details-panel p{margin:0 0 8px 0;color:#334155}
+
+.generate-btn{background:#2a2a2e;color:#fffefe;padding:8px 12px;border-radius:8px;border:0;margin-left:8px}
+.generate-btn:hover{opacity:0.95}
+
+.canvas-wrap{
+  flex:1;
+  background:linear-gradient(180deg,#ffffff,#fbfdff);
+  border-radius:14px;
+  padding:18px;
+  box-shadow: 0 12px 40px rgba(16,24,40,0.06);
+  overflow:hidden;
+}
+
+.mindmap-svg{width:100%;height:100%;display:block}
+
+.node-rect{fill:#fff;stroke:#e6eef6;filter:url(#soft);stroke-width:1}
+.node-text{font-size:14px;fill:#0f1724;font-weight:600}
+.icon-bg{fill:transparent}
+.icon-plus{font-size:14px;fill:#555;pointer-events:none}
+
+.collapse-handle{cursor:pointer}
+
+/* responsive tweaks */
+@media (max-width:900px){
+  .sidebar{display:none}
+}
+
+.minimap-svg{border-radius:8px;box-shadow:0 4px 18px rgba(16,24,40,0.06);cursor:pointer}
+.minimap-svg circle{opacity:0.95}
+.export-btn.small{background:#475569;padding:8px 10px}
+
+/* Tooltip styles */
+.tooltip{
+  position: absolute;
+  pointer-events: none; /* avoid stealing mouse events from svg */
+  z-index: 1200;
+  transform: translate(-6px, -6px);
+}
+.tooltip-content{
+  background: rgba(17,24,39,0.95);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 8px;
+  box-shadow: 0 8px 30px rgba(16,24,40,0.36);
+  font-size: 13px;
+  max-width: 260px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* --- UI polish: interactive & attractive styles --- */
+/* Sidebar elevation and rounded layout */
+.sidebar{
+  width:260px;
+  border-radius:14px;
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 14px 40px rgba(12,18,30,0.06);
+}
+
+/* Primary action styling */
+.generate-btn{
+  background: linear-gradient(180deg,#0b1320,#0f1d2a);
+  color: #fff;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  font-weight:700;
+  box-shadow: 0 10px 30px rgba(11,17,26,0.18);
+  cursor: pointer;
+  transition: transform .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.generate-btn:hover{transform: translateY(-3px);opacity:0.98}
+
+/* export buttons */
+.export-small{background:#142430;color:#fff;padding:8px 12px;border-radius:8px;border:0;cursor:pointer}
+.export-small:hover{transform:translateY(-2px);opacity:.95}
+
+/* Minimap card tweaks */
+.minimap{border-radius:10px;overflow:hidden;box-shadow:0 10px 30px rgba(12,18,30,0.06)}
+
+/* Node hover effects */
+.node-rect{transition:transform .14s ease,filter .14s ease,stroke .14s ease}
+.node-rect:hover{transform:translateY(-3px) scale(1.04);filter:drop-shadow(0 12px 30px rgba(10,18,30,0.14));stroke:#cfe9f7}
+.node-text{transition:fill .12s ease}
+
+/* Collapse handle style */
+.collapse-handle rect{fill:transparent;transition:fill .12s ease}
+.collapse-handle:hover rect{fill:rgba(15,23,36,0.04)}
+
+/* Details panel buttons */
+.details-panel{transition:box-shadow .12s ease,transform .12s ease}
+.details-panel .btn{padding:8px 10px;border-radius:8px;border:0;cursor:pointer}
+.details-panel .btn-primary{background:#0b1320;color:#fff;font-weight:700}
+.details-panel .btn-secondary{background:#f3f6fa;color:#0f1724}
+
+/* Global subtle transitions */
+*{transition:color .12s ease, background .12s ease}
+
