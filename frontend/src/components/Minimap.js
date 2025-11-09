@@ -1,9 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useRef } from 'react';
 
 export default function Minimap({ nodesLayout = [], diagramToMini = () => ({ x: 0, y: 0 }), minimapSize = { w: 180, h: 120 }, onSelectDiagramPoint }) {
   const svgRef = useRef(null);
   const draggingRef = useRef(false);
-  const [isDragging, setIsDragging] = useState(false);
 
   const emitRatio = (clientX, clientY) => {
     if (!svgRef.current) return;
@@ -17,7 +16,6 @@ export default function Minimap({ nodesLayout = [], diagramToMini = () => ({ x: 
 
   const onMouseDown = (e) => {
     draggingRef.current = true;
-    setIsDragging(true);
     emitRatio(e.clientX, e.clientY);
     window.addEventListener('mousemove', onMouseMove);
     window.addEventListener('mouseup', onMouseUp);
@@ -30,7 +28,6 @@ export default function Minimap({ nodesLayout = [], diagramToMini = () => ({ x: 
 
   const onMouseUp = () => {
     draggingRef.current = false;
-    setIsDragging(false);
     window.removeEventListener('mousemove', onMouseMove);
     window.removeEventListener('mouseup', onMouseUp);
   };
